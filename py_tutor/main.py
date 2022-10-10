@@ -143,11 +143,10 @@ def t9_2_snoflake(n: int):
     средний столбец массива, главную диагональ и побочную диагональ. В результате единицы в массиве должны образовывать
     изображение звездочки. Выведите полученный массив на экран, разделяя элементы массива пробелами.
     :param n: размерност матрицы
-    :var arr[]: массив для хранения снежинки
     :return: None
     """
+    #Для облеггчения пониманияЮ происходящего в print(), вынес получающийся массив
+    # arr = [[('.', '*')[(i == j) or (i == n-j-1) or (j == n // 2) or (i == n // 2)] for i in range(n)]for j in range(n)]
 
-    arr = [[('.', '*')[(i == j) or (i == n-j-1) or (j == n // 2) or (i == n // 2)] for i in range(n)]for j in range(n)]
-    print('\n'.join([' '.join([str(i) for i in row]) for row in arr]))
+    print('\n'.join([' '.join([str(i) for i in row]) for row in [[('.', '*')[(i == j) or (i == n-j-1) or (j == n // 2) or (i == n // 2)] for i in range(n)]for j in range(n)]]))
     return None
-
