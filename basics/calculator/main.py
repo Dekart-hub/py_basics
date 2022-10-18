@@ -12,7 +12,10 @@ def calc(a, b: int, operation: str):
     elif operation == '-':
         result = a - b
     elif operation == '/':
-        result = a / b
+        if b != 0:
+            result = a / b
+        else:
+            result = "error"
     elif operation == '*':
         result = a * b
     return result
@@ -25,11 +28,19 @@ history = {
     '*': []
 }
 
+OPERATORS = ('+', '-', '/', '*')
+
 while True:
-    a, b = int(input()), int(input())
-    operation = input()
+    try:
+        a, b, operation = int(input()), int(input()), input()
+    except:
+        print("Inappropriate usage, try again")
+        continue
+    if operation not in OPERATORS:
+        print("Unknown operation, try again")
+        continue
     res = str(a) + str(operation) + str(b) + '=' + str(calc(a, b, operation))
     history[operation].append(res)
     print(res)
-    for oper in history.keys():
-        print(oper, history[oper])
+    for operation in history.keys():
+        print(operation, history[operation])
