@@ -1,0 +1,2 @@
+requests==2.28.1
+beautifulsoap4==4.11.1
